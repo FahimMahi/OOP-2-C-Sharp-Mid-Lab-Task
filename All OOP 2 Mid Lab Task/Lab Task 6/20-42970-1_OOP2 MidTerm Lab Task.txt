@@ -1,0 +1,632 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab_Task_6
+{
+    internal class Account
+    {
+        private string accName;
+        private string acid;
+        private int balance;
+
+        public Account()
+        {
+            //Empty Constructor
+        }
+
+        public Account(string aName, string aID, int Balance)
+        {
+            this.AccName = aName;
+            this.AccID = aID;
+            this.AccBalance = Balance;
+        }
+
+        public string AccName
+        {
+            get
+            {
+                return accName;
+            }
+            set
+            {
+                accName = value;
+            }
+        }
+
+        public string AccID
+        {
+            get
+            {
+                return acid;
+            }
+            set
+            {
+                acid = value;
+            }
+        }
+
+        public int AccBalance
+        {
+            get
+            {
+                return balance;
+            }
+            set
+            {
+                balance = value;
+            }
+        }
+
+        public void Deposit(int amount)
+        {
+            AccBalance = AccBalance + amount;
+        }
+
+        public void Withdraw(int amount)
+        {
+            AccBalance = AccBalance - amount;
+        }
+
+        public void Transfer(int amount, int AccountReceiver)
+        {
+            if (amount < AccBalance)
+            {
+                AccBalance -= amount;
+                Console.WriteLine(amount + " added the amount in account number of " + AccountReceiver);
+            }
+            else
+            {
+                Console.WriteLine("Insufficient Balance");
+            }
+        }
+    }
+    internal class Book
+    {
+        private string bookName;
+        private string bookAuthor;
+        private string bookId;
+        private string bookType;
+        private int bookCopy;
+        public Book()
+        {
+            //Empty Constructor
+        }
+        public Book(string bName, string bAuthor, string bId, string bType, int bCopy)
+        {
+            this.BookName = bName;
+            this.BookAuthor = bId;
+            this.BookId = bId;
+            this.BookType = bType;
+            this.BookCopy = bCopy;
+        }
+
+        public string BookName
+        {
+            get
+            {
+                return bookName;
+            }
+            set
+            {
+                bookName = value;
+            }
+        }
+
+        public string BookAuthor
+        {
+            get
+            {
+                return bookAuthor;
+            }
+            set
+            {
+                bookAuthor = value;
+            }
+        }
+        public string BookId
+        {
+            get
+            {
+                return bookId;
+            }
+            set
+            {
+                bookId = value;
+            }
+        }
+
+        public string BookType
+        {
+            get
+            {
+                return bookType;
+            }
+            set
+            {
+                bookType = value;
+            }
+        }
+
+        public int BookCopy
+        {
+            get
+            {
+                return bookCopy;
+            }
+            set
+            {
+                bookCopy = value;
+            }
+        }
+
+        public void ShowInfo()
+        {
+            Console.WriteLine("Book Name: " + BookName);
+            Console.WriteLine("Book Author: " + BookAuthor);
+            Console.WriteLine("Book ID: " + BookId);
+            Console.WriteLine("Book Type: " + BookType);
+            Console.WriteLine("Book Copy: " + BookCopy);
+        }
+
+        public int TotalbookCopy;
+        public void AddBookCopy(int x)
+        {
+            TotalbookCopy = bookCopy + x;
+            Console.WriteLine("Total Book Copy: " + TotalbookCopy);
+        }
+
+        public static int bookCounter;
+        public static void showTotalInfo()
+        {
+            Console.WriteLine("Book Counter: " + bookCounter);
+        }
+    }
+    internal class Library
+    {
+        private string libName;
+        private string libAddress;
+        private Book[] listOfBook;
+        private int totalBook;
+
+        public Library()
+        {
+            //Empty Constructor
+        }
+
+        public Library(string lName, string lAddress, int tBook)
+        {
+            this.LibName = lName;
+            this.LibAddress = lAddress;
+            this.TotalBook = tBook;
+            listOfBook = new Book[50];
+        }
+        public string LibName
+        {
+            get
+            {
+                return libName;
+            }
+            set
+            {
+                libName = value;
+            }
+        }
+        public string LibAddress
+        {
+            get
+            {
+                return libAddress;
+            }
+            set
+            {
+                libAddress = value;
+            }
+        }
+        public int TotalBook
+        {
+            get
+            {
+                return totalBook;
+            }
+            set
+            {
+                totalBook = value;
+            }
+        }
+        public void ShowLibInfo()   // show library info and all book info as well
+        {
+            Console.WriteLine("Library Name: " + LibName);
+            Console.WriteLine("Library Address: " + LibAddress);
+            Console.WriteLine("Total Book: " + TotalBook);
+        }
+
+        public void AddNewBook(int nbook) // add a new book into lib 
+        {
+            TotalBook = TotalBook + nbook;
+        }
+
+        public void DeleteBook(int DBook) // delete book
+        {
+            TotalBook = TotalBook - DBook;
+        }
+
+        public void AddNewBookCopy(Book book, int copy)
+        {
+            TotalBook = TotalBook + copy;
+        }
+
+    }
+    internal class Contact
+    {
+        private string personName;
+        private string personId;
+        private int age;
+        private string mobileNumber;
+        private char gender; //M or F
+
+        public Contact()
+        {
+            //Empty Constructor 
+        }
+
+        public Contact(string pName, string pId, int Page, string mNumber, char Pgender)
+        {
+            this.PersonName = pName;
+            this.PersonId = pId;
+            this.Age = Page;
+            this.MobileNumber = mNumber;
+            this.Gender = Pgender;
+        }
+        public string PersonName
+        {
+            get
+            {
+                return personName;
+            }
+            set
+            {
+                personName = value;
+            }
+        }
+        public string PersonId
+        {
+            get
+            {
+                return personId;
+            }
+            set
+            {
+                personId = value;
+            }
+        }
+        public int Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                age = value;
+            }
+        }
+        public string MobileNumber
+        {
+            get
+            {
+                return mobileNumber;
+            }
+            set
+            {
+                mobileNumber = value;
+            }
+        }
+        public char Gender
+        {
+            get
+            {
+                return gender;
+            }
+            set
+            {
+                gender = value;
+            }
+        }
+        public void ShowPersonInfo()
+        {
+            Console.WriteLine("Person Name: " + PersonName);
+            Console.WriteLine("Person ID: " + PersonId);
+            Console.WriteLine("Age: " + Age);
+            Console.WriteLine("Mobile Number: " + MobileNumber);
+            Console.WriteLine("Gender: " + Gender);
+        }
+
+        public void DetectMobileOperator()
+        {
+            string mobileOperator = "Robi";
+            Console.WriteLine("Mobile Operator: " + mobileOperator);
+        }
+    }
+
+    internal class AddressBook
+    {
+        private string ownerName;
+        private string info;
+        private Contact[] listOfContact;
+
+        public AddressBook()
+        {
+            //Empty Constructor
+        }
+
+
+        public AddressBook(string oName, string oinfo)
+        {
+            this.OwnerName = oName;
+            this.Info = oinfo;
+            listOfContact = new Contact[50];
+        }
+        public string OwnerName
+        {
+            get
+            {
+                return ownerName;
+            }
+            set
+            {
+                ownerName = value;
+            }
+        }
+        public string Info
+        {
+            get
+            {
+                return info;
+            }
+            set
+            {
+                info = value;
+            }
+        }
+
+        public void ShowAllContactInfo()
+        {
+            Console.WriteLine("Owner's Name: " + OwnerName);
+            Console.WriteLine("Owner's Info: " + Info);
+        }
+
+        public int TotalContact = 64;
+        public void AddContact(int NewContact)
+        {
+            TotalContact = TotalContact + NewContact;
+        }
+        public void DeleteContact(int DelContact)
+        {
+            TotalContact = TotalContact - DelContact;
+        }
+    }
+    internal class Course
+    {
+        private string courseName;
+        private string courseCode;
+        private int courseCredit;
+
+        public Course()
+        {
+            //Empty Constructor
+        }
+
+        public Course(string cName, string cCode, int cCredit)
+        {
+            this.CourseName = cName;
+            this.CourseCode = cCode;
+            this.CourseCredit = cCredit;
+        }
+        public string CourseName
+        {
+            get
+            {
+                return courseName;
+            }
+            set
+            {
+                courseName = value;
+            }
+        }
+        public string CourseCode
+        {
+            get
+            {
+                return courseCode;
+            }
+            set
+            {
+                courseCode = value;
+            }
+        }
+        public int CourseCredit
+        {
+            get
+            {
+                return courseCredit;
+            }
+            set
+            {
+                courseCredit = value;
+            }
+        }
+
+        public void ShowCourseInfo()
+        {
+            Console.WriteLine("Course Name: " + CourseName);
+            Console.WriteLine("Course Code: " + CourseCode);
+            Console.WriteLine("Course Credit: " + CourseCredit);
+        }
+    }
+    internal class Mobile
+    {
+        private string mobileOwnerName;
+        private string mobileNumber; // SIM number 
+        private int mobileBalance;
+        private string mobileOSName;
+        private bool Lock; // true means phone is lock false means unlock
+
+        public Mobile()
+        {
+            //Empty Constructor
+        }
+
+        public Mobile(string MOName, string mNumber, int mBalance, string mOSName, bool lockCheck)
+        {
+            this.MobileOwnerName = MOName;
+            this.MobileNumber = mNumber;
+            this.MobileBalance = mBalance;
+            this.MobileOSName = mOSName;
+            this.LockCheck = lockCheck;
+        }
+        public string MobileOwnerName
+        {
+            get
+            {
+                return mobileOwnerName;
+            }
+            set
+            {
+                mobileOwnerName = value;
+            }
+        }
+
+        public string MobileNumber
+        {
+            get
+            {
+                return mobileNumber;
+            }
+            set
+            {
+                mobileNumber = value;
+            }
+        }
+        public int MobileBalance
+        {
+            get
+            {
+                return mobileBalance;
+            }
+            set
+            {
+                mobileBalance = value;
+            }
+        }
+        public string MobileOSName
+        {
+            get
+            {
+                return mobileOSName;
+            }
+            set
+            {
+                mobileOSName = value;
+            }
+        }
+        public bool LockCheck
+        {
+            get
+            {
+                return Lock;
+            }
+            set
+            {
+                Lock = value;
+            }
+        }
+        public void ShowInfo()
+        {
+            Console.WriteLine("Mobile Owner Name: " + MobileOwnerName);
+            Console.WriteLine("Mobile Number: " + MobileNumber);
+            Console.WriteLine("Mobile Balance: " + MobileBalance);
+            Console.WriteLine("Mobile OS Name: " + MobileOSName);
+            Console.WriteLine("Mobile Lock is: " + LockCheck);
+            Console.WriteLine("true means phone is lock false means unlock");
+        }
+
+        public void Recharge(int amount)
+        {
+            MobileBalance = MobileBalance + amount;
+        }
+        public void CallSomeone(int timeDuration)
+        { // per minute cost=1 taka
+            int cost = timeDuration * 1;
+            MobileBalance = MobileBalance - cost;
+        }
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Account obj = new Account("Fahim Mahmud Bhuiyan", "20-42970-1", 2000);
+            Console.WriteLine("Account's Owner Name: " + obj.AccName);
+            Console.WriteLine("Account's Owner ID: " + obj.AccID);
+            Console.WriteLine("Account's Owner Balance: " + obj.AccBalance);
+            obj.Withdraw(500);
+            Console.WriteLine("After Withdrawing Account's Owner Balance: " + obj.AccBalance);
+            obj.Deposit(420);
+            Console.WriteLine("After Depositing Account's Owner Balance: " + obj.AccBalance);
+            obj.Transfer(500, 1220);
+            Console.WriteLine("After Transfering Account's Owner Balance: " + obj.AccBalance);
+            Console.WriteLine();
+
+
+            Book book = new Book("Himu", "Humayan Ahmed", "12-331", "Fictional character", 50);
+            book.ShowInfo();
+            book.AddBookCopy(30);
+            Book.bookCounter = 4;
+            Book.showTotalInfo();
+            Console.WriteLine();
+
+
+            Contact contact = new Contact("Fahim Mahmud Bhuiyan", "20-42970-1", 20, "01850311282", 'M');
+            contact.ShowPersonInfo();
+            contact.DetectMobileOperator();
+            Console.WriteLine();
+
+
+            Course course = new Course("OOP 2", "22-1113-2", 3);
+            course.ShowCourseInfo();
+            Console.WriteLine();
+
+
+            Mobile mobile = new Mobile("Fahim Mahmud Bhuiyan", "01850311282", 120, "Robi", true);
+            mobile.ShowInfo();
+            mobile.Recharge(200);
+            Console.WriteLine("After recharging total Balance is: " + mobile.MobileBalance);
+            mobile.CallSomeone(5);
+            Console.WriteLine("After calling someone total Balance is: " + mobile.MobileBalance);
+            Console.WriteLine();
+
+            Library library = new Library("Bornomala Library", "Mirpur", 420);
+            library.ShowLibInfo();
+            library.AddNewBook(20);
+            Console.WriteLine("After Adding Total book is: " + library.TotalBook);
+            library.DeleteBook(40);
+            Console.WriteLine("After Delating Total book is: " + library.TotalBook);
+            library.AddNewBookCopy(book, 50);
+            Console.WriteLine("After Adding Total book is: " + library.TotalBook);
+            Console.WriteLine();
+
+            AddressBook addressBook = new AddressBook("Fahim Mahmud Bhuiyan", "Mirpur");
+            addressBook.ShowAllContactInfo();
+            Console.WriteLine("Total Contact: " + addressBook.TotalContact);
+            addressBook.AddContact(32);
+            Console.WriteLine("After Adding Total Contact is: " + addressBook.TotalContact);
+            addressBook.DeleteContact(16);
+            Console.WriteLine("After Delating Total Contact is: " + addressBook.TotalContact);
+            Console.WriteLine();
+
+        }
+    }
+}
